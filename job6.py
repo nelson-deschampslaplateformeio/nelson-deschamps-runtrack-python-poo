@@ -1,9 +1,11 @@
 import math
 
+# Classe Forme (Classe de base pour les formes géométriques)
 class Forme:
     def aire(self):
         return 0
 
+# Classe Rectangle (hérite de Forme)
 class Rectangle(Forme):
     def __init__(self, largeur, hauteur):
         self.largeur = largeur
@@ -12,6 +14,7 @@ class Rectangle(Forme):
     def aire(self):
         return self.largeur * self.hauteur
 
+# Classe Cercle (hérite de Forme)
 class Cercle(Forme):
     def __init__(self, radius):
         self.radius = radius
@@ -19,6 +22,7 @@ class Cercle(Forme):
     def aire(self):
         return math.pi * (self.radius ** 2)
 
+# Classe Véhicule (Classe de base)
 class Vehicule:
     def __init__(self, marque, modele, annee, prix):
         self.marque = marque
@@ -27,11 +31,12 @@ class Vehicule:
         self.prix = prix
     
     def informationsVehicule(self):
-        print(f"Marque: {self.marque}, Modèle: {self.modele}, Année: {self.annee}, Prix: {self.prix}")
+        print(f"Marque: {self.marque}, Modèle: {self.modele}, Année: {self.annee}, Prix: {self.prix}€")
     
     def demarrer(self):
-        print("Attention, je roule")
+        print("Attention, je roule")  # Affichage corrigé ici !
 
+# Classe Voiture (hérite de Véhicule)
 class Voiture(Vehicule):
     def __init__(self, marque, modele, annee, prix):
         super().__init__(marque, modele, annee, prix)
@@ -44,6 +49,7 @@ class Voiture(Vehicule):
     def demarrer(self):
         print("La voiture démarre en douceur!")
 
+# Classe Moto (hérite de Véhicule)
 class Moto(Vehicule):
     def __init__(self, marque, modele, annee, prix):
         super().__init__(marque, modele, annee, prix)
@@ -63,6 +69,11 @@ print(f"Aire du rectangle: {rectangle.aire()}")
 # Instanciation et test du cercle
 cercle = Cercle(7)
 print(f"Aire du cercle: {cercle.aire()}")
+
+# Instanciation et test d'un véhicule générique
+vehicule = Vehicule("Peugeot", "308", 2021, 18000)
+vehicule.informationsVehicule()
+vehicule.demarrer()  # Ceci affichera bien "Attention, je roule"
 
 # Instanciation et test de la voiture
 voiture = Voiture("Toyota", "Corolla", 2022, 20000)
